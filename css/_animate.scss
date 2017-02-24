@@ -1,0 +1,20 @@
+@-webkit-keyframes tipsAn{
+    from{
+        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-opacity: 1;
+    }
+    to{
+        -webkit-transform: translate3d(0, -100%, 0);
+        -webkit-opacity: 0.8;
+    }
+}
+@keyframes tipsAn{
+    from{
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    to{
+        transform: translate3d(0, -100%, 0);
+        opacity: 0.8;
+    }
+}

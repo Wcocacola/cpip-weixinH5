@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<!-- IOS全屏 -->
+		<meta name="apple-touch-fullscreen" content="yes">
+		<!-- 设置苹果工具栏颜色 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<title>太平洋保险</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css?v=1.2"/>
+	</head>
+	<body>
+
+		<div class="loading zindex9999">
+			<div class="loading-bar">
+				<div></div>
+			</div>
+			<div class="loading-inner">
+				
+			</div>
+			<p id="progress"></p>
+		</div>
+
+		<div class="main fullPage bg1">
+			<canvas id="canvas" width="" height=""></canvas>
+			<canvas id="snow" class="hide"></canvas>
+			<div class="btns-box">
+				<div class="btns-index">
+					<button class="btn-turn background-contain"></button>
+					<button class="btn-rule background-contain"></button>
+				</div>
+				<div class="btns-game animated">
+					<button class="btn-tap background-contain animated"></button>
+					<button class="btn-price background-contain animated"></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="tips zindex1000 fullPage hide chuwu-tip">
+			<div class="tips-inner">
+				<div class="toUp"><img src="images/icon_tips_cw.png"/></div>
+				<p>向上滑动，看烟火！</p>
+			</div>
+		</div>
+		<div class="tips zindex1000 fullPage hide danian-tip">
+			<div class="tips-inner">
+				<div class="toRight"><img src="images/icon_tips_dn.png"/></div>
+				<p>向右拖动汽车，回家啦！</p>
+			</div>
+		</div>
+		<div class="tips zindex1000 fullPage hide chuba-tip">
+			<div class="tips-inner">
+				<div class="toClk"><img src="images/icon_tips_cb.png"/></div>
+				<p>点击聚宝盆，财多多！</p>
+			</div>
+		</div>
+		<div class="tips zindex1000 fullPage hide xiaonian-tip">
+			<div class="tips-inner">
+				<p><span class="toClk"><img src="images/icon_tips_xn.png"/></span>点击后备箱，有惊喜！</p>
+			</div>
+		</div>
+		<div class="tips zindex1000 fullPage hide yuanxiao-tip">
+			<div class="tips-inner">
+				<p><span class="toClk"><img src="images/icon_tips_yx.png"/></span>滑动汤勺，吃汤圆！</p>
+			</div>
+		</div>
+		<div class="barrier zindex1000 fullPage hide">
+			<div class="rule background-contain">
+				<div class="btn-close-rule background-contain"></div>
+				<!--
+				<h4>活动详情</h4>
+				<p class="rule-titles">活动时间</p>
+				<p>2017年1月25日-2月10日</p>
+				<p class="rule-titles">活动内容</p>
+				<p><span class="strong">太平洋电话车险10108888给您拜年啦！</span><br/>私家车主通过活动页面参与“安馨团圆，礼运新春”活动，填写姓名、手机号、车牌号、地址，即可随机抽取2017年精美台历、格瓦拉观影券、京东E卡、糯米券等丰富好礼！</p>
+				<p class="rule-titles">奖品发放</p>
+				<p>1.奖品将于活动结束后10个工作日内陆续发放（台历将通过邮政快递发放，其它奖品将通过短信发送电子券码）。<br/>2.活动参与者务必填写真实的手机号（用于接收电子券）、完整的收货地址（用于接收台历）；</p>
+				<p class="rule-titles">注意事项</p>
+				<p>1.凡参加活动者，即视为同意接受本活动规则及奖品领取规则的所有条款，如有任何舞弊、欺诈、用户信息不真实等情形，主办方有权取消参与者参加活动的资格，并保留不另行通知或采取其他相应法律措施的权利；<br />2. 电子券需在收到短信后的24小时内进行绑定或激活。如未及时绑定或激活卡券而造成的卡券无法使用被人盗用等问题视为中奖者自动放弃该奖项；<br />3.活动主办方有权依据相关法律法规或业务需要中止或取消此次活动或者修改活动方案，经相关途径公告后生效；<br />4.所有活动参与者请仔细甄别活动信息来源和渠道，谨防不法分子利用本活动所发出的虚假、诈骗信息。活动参与者因轻信不法分子虚假、诈骗信息所受到的损失与活动主办方无关；<br />5.凡用户个人资料，我们将其做个人隐私保护，并承诺不泄露于其他机构；<br />6.本次活动解释权归中国太平洋财产保险股份有限公司所有。</p>
+			-->
+
+			</div>
+		</div>
+		<!--alert words-->
+		<div class="alert-txt hide">弹出提示信息！</div>
+		<audio id="audio" src="images/bgm.mp3" class="hide" loop="loop" autoplay></audio>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/easeljs-0.8.1.min.js" ></script>
+		<script src="js/tweenjs-0.6.1.min.js"></script>
+		<script src="js/preloadjs-0.6.1.min.js"></script>
+		<script src="js/soundjs-0.6.1.min.js"></script>
+		<script src="js/createjs.init.js"></script>
+		<script src="js/music-2.0.js"></script>
+		<script src="js/request.js"></script>
+		<script src="js/snow2.js" charset="utf-8"></script>
+		<script src="js/game.js"></script>
+	</body>
+</html>
